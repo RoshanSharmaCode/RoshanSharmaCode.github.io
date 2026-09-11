@@ -4,6 +4,8 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  repository_dispatch:
+    types: [portfolio-updated]
 
 permissions:
   contents: read
@@ -26,6 +28,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: RoshanSharmaCode/portfolio
+          ref: main
           path: portfolio
 
       - name: Setup pnpm
